@@ -1,0 +1,28 @@
+.utmc {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+.utmc__form {
+	border: 2px solid #eee;
+	border-radius: 6px;
+	padding: 16px 24px 24px;
+	margin: 2em 0;
+}
+
+h4.utmc__title {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+input.utmc__text-field {
+    font-family: inherit;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 14px;
+    margin-right: 11px;
+}
