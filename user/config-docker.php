@@ -29,7 +29,7 @@ define( 'YOURLS_DB_PREFIX', getenv('YOURLS_DB_PREFIX') ?: 'yourls_' );
 
 /** YOURLS installation URL -- all lowercase, no trailing slash at the end.
  ** If you define it to "http://sho.rt", don't use "http://www.sho.rt" in your browser (and vice-versa) */
-define( 'YOURLS_SITE', getenv('YOURLS_SITE') ?: 'http://localhost:8082' );
+define( 'YOURLS_SITE', getenv('YOURLS_SITE') ?: 'http://your-own-domain-here.com' );
 
 /** Server timezone GMT offset */
 define( 'YOURLS_HOURS_OFFSET', filter_var(getenv('YOURLS_HOURS_OFFSET'), FILTER_VALIDATE_INT) ?: 0 );
