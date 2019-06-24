@@ -1,5 +1,6 @@
-*
-!.gitignore
-!*/bulk-import-and-shorten/*
-!*/facelift/*
-!*/utmc/*
+/hyphens-in-urls
+/random-bg
+/sample-page
+/sample-plugin
+/sample-toolbar
+index.html
