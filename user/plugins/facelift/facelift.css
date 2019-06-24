@@ -1,0 +1,231 @@
+body, div, p, td {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    line-height: 1.5;
+}
+
+header {
+    display: none;
+}
+
+strong {
+    font-weight: 600;
+}
+
+div#new_url, #new_url div, #new_url_form {
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: left;
+}
+
+Input.text, select, textarea {
+    font-family: inherit;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 14px;
+    margin: 0 16px;
+}
+
+td.url small a {
+    font-size: 12px;
+    color: #757575;
+}
+
+table#main_table td.timestamp {
+    font-size: 14px;
+}
+
+table#main_table td.ip {
+    font-size: 14px;
+}
+
+div#wrap {
+    border: 0;
+    border-radius: 0;
+    padding: 32px;
+    max-width: 1120px;
+}
+
+td.actions a.button {
+    background-size: contain;
+    border: none;
+    width: 28px;
+    height: 28px;
+    opacity: 0.4;
+    transition: all .3s ease;
+}
+
+td.actions .button:active {
+    border: none;
+}
+
+td.actions a.button:hover {
+    opacity: 1;
+}
+
+td.actions .button_stats {
+    background: url(img/stats.svg);
+}
+
+td.actions .button_share {
+    background: url(img/share.svg);
+}
+
+td.actions .button_edit {
+    background: url(img/edit.svg);
+}
+
+td.actions .button_delete {
+    background: url(img/delete.svg);
+}
+
+ul#admin_menu {
+    display: flex;
+    list-style: none;
+    margin: 0 -16px;
+    font-size: 16px;
+    min-height: 0;
+}
+
+ul#admin_menu li#admin_menu_logout_link {
+    order: 99;
+    margin-left: auto;
+}
+
+ul#admin_menu li:hover {
+    list-style: none;
+}
+
+ul#admin_menu li {
+    margin: 0 16px;
+}
+
+main {
+    margin-top: 24px;
+}
+
+td.actions {
+    margin-right: -5px;
+}
+
+table#main_table td {
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+table#main_table td:first-of-type {
+    padding-left: 24px;
+}
+
+table#main_table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+    /* border: 1px solid rgba(238, 238, 238, .5); */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+table.tblSorter thead tr th, table.tblSorter tfoot tr th, table.tblSorter th.header {
+    border: 0;
+}
+
+#footer p {
+    border: none;
+    padding-bottom: 32px;
+}
+
+table.tblSorter thead tr .tablesorter-header {
+    padding: 10px 16px;
+    height: 48px;
+    box-sizing: border-box;
+    font-weight: 600;
+    color: #333;
+}
+
+table.tblSorter thead tr .tablesorter-header:first-of-type {
+    padding-left: 24px;
+}
+
+input#add-button {
+    font-family: inherit;
+    height: 28px;
+    border-radius: 6px;
+    background-color: #0391ce;
+    border-color: transparent;
+    color: #fff;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: normal;
+    transition: all .3s ease;
+    padding: 0 12px;
+}
+
+input#add-button:hover {
+    background-color: #02aaf2;
+}
+
+div#filter_form {
+    padding: 16px;
+    font-size: 14px;
+}
+
+nav {
+    padding-bottom: 32px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 32px;
+}
+
+form.utmc__form {
+    box-shadow: 0 0 10px 0 rgba(183,192,206,.2);
+    border: 1px solid rgba(238, 238, 238, .5);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+table.tblSorter thead tr th, table.tblSorter tfoot tr th, table.tblSorter th.header {
+    background-color: #f0f9ff;
+}
+
+div#sharebox {
+    width: auto;
+    height: auto;
+}
+
+div#shareboxes {
+    display: flex;
+}
+
+div#copybox {
+    height: auto;
+}
+
+#main_table tfoot th, #main_table tfoot th div {
+    font-size: 14px;
+    font-weight: 500;
+    max-width: none;
+    width: 100%;
+}
+
+#filter_options input, #filter_options select,
+#filter_options input:hover, #filter_options select:hover {
+    margin-bottom: 1.5em;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    margin: 0 8px 1.5em;
+}
+
+input.text:focus, textarea:focus {
+    border: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+#filter_options input[name="search"] {
+    width: 270px;
+}
