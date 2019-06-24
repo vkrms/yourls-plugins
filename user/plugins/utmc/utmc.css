@@ -1,0 +1,145 @@
+.utmc {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+.utmc__form {
+	border: 2px solid #eee;
+	border-radius: 6px;
+	padding: 16px 24px 24px;
+	margin: 2em 0;
+}
+
+h4.utmc__title {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+.utmc__text-field,
+.utmc__text-field:focus {
+    font-family: inherit;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 14px;
+    margin-right: 11px;
+    width: 280px;
+    margin-bottom: 16px;
+    margin: 0 32px 16px 0;
+}
+
+.utmc__text-field.--textarea {
+	height: 100px
+}
+
+
+.selectize-control.single .selectize-input, .selectize-dropdown.single {
+    border: 2px solid #eee;
+    border-radius: 6px;
+    background: #fff;
+    /* height: 28px; */
+}
+
+.selectize-control {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+input.utmc__result,input.utmc__result:focus {
+    width: 100%;
+    height: 36px;
+    font-size: 18px;
+}
+
+.vs__dropdown-toggle {
+    border: none;
+    padding: 0;
+    min-height: 100%;
+}
+
+.utmc__flex-wrap {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.vs__selected, .vs__search {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+button.vs__clear > svg {
+    /* display: none; */
+    width: 16px;
+    height: 16px;
+}
+
+button.vs__clear {
+    /* background: url(img/cross.svg); */
+    /* background-size: contain; */
+    width: 14px;
+    height: 14px;
+    fill: #9f9f9f;
+}
+
+.vs__actions {
+    padding: 0;
+}
+
+svg.vs__open-indicator {
+    width: 16px;
+    height: 16px;
+}
+
+svg#svg-sprites {
+    position: absolute;
+    visibility: hidden;
+}
+
+button.utmc__submit-btn {
+    height: 32px;
+    padding: 0 16px;
+    border-radius: 6px;
+    background-color: #0491ce;
+    border: transparent;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+button.utmc__submit-btn:hover {
+	background-color: #01aaf2;
+}
+
+.utmc__input-group {
+    display: flex;
+    align-items: baseline;
+}
+
+input.utmc__radio {
+	-webkit-appearance: none;
+	border: 2px solid #eee;
+	border-radius: 100%;
+	margin: 0;
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+	background-image: url(img/circle.svg);
+	background-position: center;
+	background-size: 0;
+	background-repeat: no-repeat;
+	transition: all .3s ease;
+	outline: none;
+}
+
+input.utmc__radio:checked {
+	background-size: 8px;
+	border-color: #0491ce;
+}
