@@ -18,27 +18,26 @@ function utmc_resource( $url ) {
 }
 
 // Add markup, styles and scripts
-yourls_add_action( 'admin_page_before_form', function() {
-
-	/** Available sources */
-	$sources = [
-		'Facebook.com',
-		'Vk.com',
-		'Twitter.com',
-		'Telegram',
-		'Whatsapp',
-		'Travelpayouts',
-		'Blog.travelpayouts.com',
-		'Webinar.travelpayouts.com',
-		'Aviasales.ru',
-	];
-
+yourls_add_action( 'admin_page_before_table', function() {
 	require( 'utmc-template.php' );
 });
 
-// https://www.travelpayouts.com/campaigns/84/promos?utm_source=facebook&utm_medium=organic&utm_campaign=booking&utm_content=17_05_19
+// Add bulk page via hook
+yourls_add_action( 'plugins_loaded', function() {
+	yourls_register_plugin_page( 'utmc_bulk', 'Bulk UTM Constructor', 'utmc_bulk_page' );
+});
 
-// utm_source=facebook
-// utm_medium=organic
-// utm_campaign=booking
-// utm_content=17_05_19
+// This renders the bulk page
+function utmc_bulk_page() {
+	require( 'utmc-bulk-template.php' );
+};
+
+yourls_add_action( 'yourls_ajax_add_links', function() {
+	// yourls_verify_nonce( 'add_url', $_REQUEST['nonce'], false, 'omg error' );
+	foreach ( $_REQUEST['urls'] as $url ) {
+		yourls_add_new_link( $url );
+	}
+	// $return = yourls_add_new_link( $_REQUEST['url'], $_REQUEST['keyword'] );
+	// echo json_encode( $return );
+	die();
+});
