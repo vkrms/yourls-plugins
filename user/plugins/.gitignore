@@ -1,0 +1,5 @@
+*
+!.gitignore
+!*/bulk-import-and-shorten/*
+!*/facelift/*
+!*/utmc/*
