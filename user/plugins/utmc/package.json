@@ -1,0 +1,29 @@
+{
+ "name": "utmc",
+ "version": "1.0.0",
+ "main": "index.js",
+ "license": "MIT",
+ "scripts": {
+  "start": "gulp",
+  "test": "node_modules/eslint/bin/eslint.js src/js/**/*.js",
+  "test_css": "node_modules/stylelint/bin/stylelint.js src/css/**/*.sss",
+  "build": "gulp build",
+  "watch": "gulp watch"
+ },
+ "devDependencies": {
+  "@babel/cli": "^7.4.4",
+  "@babel/core": "^7.4.5",
+  "@babel/polyfill": "^7.4.4",
+  "@babel/preset-env": "^7.4.5",
+  "@babel/register": "^7.4.4",
+  "autoprefixer": "^9.6.0",
+  "gulp": "^4.0.2",
+  "gulp-autoprefixer": "^6.1.0",
+  "gulp-postcss": "^8.0.0"
+ },
+ "babel": {
+  "presets": [
+   "@babel/preset-env"
+  ]
+ }
+}
