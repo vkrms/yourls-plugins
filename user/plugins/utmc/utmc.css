@@ -25,10 +25,8 @@ h4.utmc__title {
     box-sizing: border-box;
     padding: 0 8px;
     font-size: 14px;
-    margin-right: 11px;
     width: 280px;
-    margin-bottom: 16px;
-    margin: 0 32px 16px 0;
+    margin: 0 24px 16px 0 !important;
 }
 
 .utmc__text-field.--textarea {

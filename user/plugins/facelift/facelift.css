@@ -30,7 +30,7 @@ Input.text, select, textarea {
     box-sizing: border-box;
     padding: 0 8px;
     font-size: 14px;
-    margin: 0 16px;
+    margin: 0 16px !important;
 }
 
 td.url small a {
