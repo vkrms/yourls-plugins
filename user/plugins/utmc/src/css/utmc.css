@@ -39,7 +39,7 @@ h4.utmc__title {
 	border: 2px solid #2A85B3;
 }
 
-.utmc__text-field.--textarea {
+.utmc__text-field.\--textarea {
 	height: 100px;
 	padding: 2px 8px;
 }
