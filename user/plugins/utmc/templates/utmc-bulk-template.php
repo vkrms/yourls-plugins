@@ -7,12 +7,8 @@
 <script src="https://unpkg.com/vue-select@latest"></script>
 <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
 
-<!-- axios -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-<!-- <script src="https://unpkg.com/axios@latest"></script> -->
-
 <!-- utmc stuff -->
-<link rel="stylesheet" href="<?php echo utmc_resource( 'utmc.css' ) ?>"/>
+<link rel="stylesheet" href="<?php echo utmc_resource( 'dist/utmc.css' ) ?>"/>
 
 <!-- SVG SPRITES -->
 <svg id="svg-sprites">
@@ -33,7 +29,7 @@
 	<form class="utmc__form" action="/" method="post">
 		<h4 class="utmc__title">Utm constructor</h4>
 
-		<div id="app">
+		<div id="bulkApp">
 
 			<div class="utmc__flex-wrap">
 
@@ -73,9 +69,7 @@
 
 			</div>
 
-			<pre>
-			{{result}}
-			</pre>
+			<pre>{{result}}</pre>
 
 			<button type="button" class="utmc__submit-btn" v-on:click="mySubmit">Shorten with UTMs</button>
 		</div> <!-- app end -->
@@ -83,6 +77,6 @@
 	</form>
 </section>
 
-<script src="<?php echo utmc_resource( 'bulk.js' ) ?>"></script>
+<script src="<?php echo utmc_resource( 'dist/bulk.js' ) ?>"></script>
 
 <?php
