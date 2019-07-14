@@ -23,8 +23,7 @@ const utmc = new Vue({
     } },
 
     computed: {
-
-        result: () => {
+        result() {
             let str = this.baseUrl
             const params = []
 
@@ -75,7 +74,12 @@ const utmc = new Vue({
             }
 
             return results
-        }, },
+        },
+
+        utm_content_bulk() {
+            return (this.utm_content.indexOf('\n') > 0) ? this.utm_content.split('\n') : this.utm_content
+        }
+    },
     methods: { prepareInput: (str) => {
         return (str.indexOf('\n') > 0) ? str.split('\n') : str
     },
