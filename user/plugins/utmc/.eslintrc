@@ -1,0 +1,77 @@
+env:
+    browser: true
+    es6: true
+    jquery: true
+extends: airbnb
+parser: babel-eslint
+parserOptions:
+    ecmaVersion: 6
+    ecmaFeatures:
+        jsx: false
+        experimentalObjectRestSpread: true
+    sourceType: module
+rules:
+    no-unused-vars:
+    - off
+    no-undef:
+    - off
+    object-curly-newline:
+    - off
+    indent:
+    - error
+    - 4
+    linebreak-style:
+    - error
+    - unix
+    global-require: 0
+    quotes:
+    - error
+    - single
+    semi:
+    - error
+    - never
+    no-underscore-dangle: 0
+    max-len:
+        - 2
+        - 110
+    new-cap: 0
+    no-param-reassign: 0
+    one-var: 2
+    comma-dangle: 0
+    no-cond-assign: 0
+    no-nested-ternary: 0
+    spaced-comment: 0
+    guard-for-in: 0
+    camelcase: 0
+    func-names: 0
+    no-use-before-define: 0
+    no-constant-condition: 0
+    no-shadow: 0
+    padded-blocks: 0
+    complexity: 0
+    no-console:
+        - off
+        - error
+        - allow:
+            - warn
+            - error
+            - info
+    space-return-throw-case: 0
+    space-before-keywords: 0
+    space-after-keywords: 0
+    no-empty-label: 0
+    no-restricted-syntax: 0
+    no-labels:
+    - error
+    keyword-spacing:
+    - error
+    - before: true
+      after: true
+    arrow-body-style: 0
+    import/extensions: 0
+    import/no-dynamic-require: 0
+settings:
+    import/resolver:
+        node:
+            moduleDirectory:
+                - node_modules

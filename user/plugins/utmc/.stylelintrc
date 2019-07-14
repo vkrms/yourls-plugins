@@ -1,0 +1,76 @@
+extends: 'stylelint-config-standard'
+plugins:
+    - 'stylelint-order'
+    - 'stylelint-selector-bem-pattern'
+rules:
+  unit-whitelist:
+    - px
+    - vh
+    - vw
+    - s
+    - '%'
+    - deg
+  indentation: 4
+  declaration-no-important: true
+  block-closing-brace-empty-line-before: null
+  block-closing-brace-newline-before: null
+  block-opening-brace-space-before: null
+  declaration-block-trailing-semicolon: null
+  max-empty-lines: 1
+  font-family-name-quotes: 'always-unless-keyword'
+  property-no-unknown:
+    - true
+    - ignoreProperties:
+        - 'min-size'
+        - 'max-size'
+
+  selector-type-no-unknown:
+    - true
+    - ignoreTypes:
+        - '^'
+        - "/^(__|--)[a-zA-Z0-9]/"
+  order/declaration-block-order:
+    - custom-properties
+    - dollar-variables
+    - declarations
+    - at-rules
+    - rules
+  order/declaration-block-properties-specified-order:
+    - content
+    - width
+    - height
+    - max-width
+    - max-height
+    - size
+    - min-size
+    - max-size
+    - position
+    - z-index
+    - top
+    - bottom
+    - left
+    - right
+    - padding
+    - margin
+    - overflow
+    - display
+    - flex
+    - justify-content
+    - align-items
+    - font
+    - text
+    - line-height
+    - color
+    - border
+    - border-radius
+    - background
+    - box-shadow
+    - transition
+    - animation
+    - transform
+    - opacity
+    - will-change
+    - pointer-events
+    - appearance
+    - cursor
+syntax: sugarss
