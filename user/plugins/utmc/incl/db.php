@@ -18,11 +18,11 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 
 	// Create tables
 	global $ydb;
-	$ydb->perform( $query );
+	$ydb->query( $query );
 
 	$table_name = 'utmc_params';
 
-	$create_success = $ydb->fetchAffected( "SHOW TABLES LIKE '$table_name'" );
+	$create_success = $ydb->query( "SHOW TABLES LIKE '$table_name'" );
 	if ( $create_success ) {
 		$success_msg[] = yourls_s( "Table '%s' created.", $table_name );
 	} else {
@@ -57,7 +57,7 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 		foreach ( $options_group as $option ) {
 			$val   = "{$type}={$option}";
 			$query = "INSERT INTO `utmc_params` (`value`) VALUES ('$val')";
-			$ydb->perform( $query );
+			$ydb->query( $query );
 		}
 	}
 
