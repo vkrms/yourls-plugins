@@ -31,6 +31,7 @@ Input.text, select, textarea {
     padding: 0 8px;
     font-size: 14px;
     margin: 0 16px !important;
+    transition: all .3s ease;
 }
 
 td.url small a {
@@ -219,11 +220,12 @@ div#copybox {
 #filter_options input:hover, #filter_options select:hover {
     margin-bottom: 1.5em;
     border: 2px solid rgba(0, 0, 0, 0.05);
-    margin: 0 8px 1.5em;
+    margin: 0 8px 1.5em !important;
 }
 
 input.text:focus, textarea:focus {
-    border: 2px solid rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: 2px solid #2A85B3;
 }
 
 #filter_options input[name="search"] {
