@@ -2,3 +2,5 @@ ruleset_WordPress-Core.xml
 .php_cs.cache
 user\config-docker.php
 yourls.txt
+test
+testnode
