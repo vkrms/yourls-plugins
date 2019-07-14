@@ -34,8 +34,8 @@ function css() {
 }
 
 function watch() {
-    return gulp.watch([src.js], (cb) => {
-        return rollupTask()
+    return gulp.watch([src.js, src.css], (cb) => {
+        return gulp.parallel(css, rollupTask)
     })
 }
 
@@ -45,9 +45,10 @@ function rollupTask() {
         .pipe(gulp.dest('dist'))
 }
 
+exports.css = css
 exports.js = js
 exports.jsProd = jsProd
 exports.watch = watch
 exports.rollup = rollupTask
 
-exports.default = gulp.parallel(css)
+exports.default = gulp.parallel(css, rollupTask)
