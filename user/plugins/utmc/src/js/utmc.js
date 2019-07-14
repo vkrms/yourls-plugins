@@ -22,14 +22,8 @@ const utmc = new Vue({
     mounted() {
         this.updateOptions()
     },
+
     computed: {
-        utm_content_bulk() {
-            return (this.utm_content.indexOf('\n') > 0) ? this.utm_content.split('\n') : this.utm_content
-        }
-    },
-
-    methods: {
-
         result() {
             let str = this.baseUrl
             const params = this.inputs
@@ -46,6 +40,9 @@ const utmc = new Vue({
             }
             return str
         },
+    },
+
+    methods: {
 
         mySubmit(e) {
             e.preventDefault()
@@ -71,7 +68,7 @@ const utmc = new Vue({
                 window.addLink(utmc)
             }
         }
-    }
+    },
 })
 
 // ugly but has to be done in for interaction with vendor scripts

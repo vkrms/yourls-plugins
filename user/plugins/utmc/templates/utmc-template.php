@@ -67,13 +67,14 @@
 					select-on-tab :clearable="false">
 				</v-select>
 
-				<input type="text" name="utmc_result"
-					class="utmc__text-field utmc__result" v-bind:value="result"
-					placeholder="result here..." v-on:keydown="addLinkFromVue">
+				<div class="utmc__text-field utmc__result">
+					{{ result }}
+				</div>
 
 			</div>
 
 		</div> <!-- app end -->
+
 		<button type="button" class="utmc__submit-btn">Shorten with UTMs</button>
 
 	</form>
