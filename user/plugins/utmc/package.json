@@ -38,7 +38,8 @@
   "rollup-plugin-commonjs": "^10.0.1",
   "rollup-plugin-json": "^4.0.0",
   "rollup-plugin-node-resolve": "^5.2.0",
-  "stylelint-order": "^3.0.0"
+  "stylelint-order": "^3.0.0",
+  "stylelint-selector-bem-pattern": "^2.1.0"
  },
  "dependencies": {
   "axios": "^0.19.0"
