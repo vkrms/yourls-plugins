@@ -26,13 +26,14 @@
   "gulp-better-rollup": "^4.0.1",
   "gulp-concat": "^2.6.1",
   "gulp-postcss": "^8.0.0",
+  "gulp-sourcemaps": "^2.6.5",
   "gulp-uglify": "^3.0.2",
   "rollup": "^1.16.7",
   "rollup-plugin-babel": "^4.3.3",
   "rollup-plugin-commonjs": "^10.0.1",
   "rollup-plugin-json": "^4.0.0",
   "rollup-plugin-node-resolve": "^5.2.0",
-  "stylelint-order": "^3.0.0",
+  "stylelint-order": "^3.0.1",
   "stylelint-selector-bem-pattern": "^2.1.0"
  },
  "dependencies": {
