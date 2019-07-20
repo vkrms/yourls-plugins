@@ -1,3 +1,6 @@
+import { data, getOptions, handleMainInput } from './shared'
+import axios from 'axios'
+
 // override vue-select controls
 const $vueSelectComponent = VueSelect.VueSelect
 $vueSelectComponent.props.components.default = () => {
@@ -17,84 +20,171 @@ Vue.component('v-select', $vueSelectComponent)
 const utmc = new Vue({
     el: '#bulkApp',
     data,
-    watch: { radioModel: (newVal, oldVal) => {
-        console.log(newVal, oldVal)
-        this.inputs[oldVal] = ''
-    } },
+    mounted() {
+        this.updateOptions()
+    },
+
+    watch: {
+        // clear model that was a textarea before
+        radioModel(newVal, oldVal) {
+            if (oldVal != '') {
+                this.inputs[oldVal] = ''
+            }
+        }
+    },
 
     computed: {
+
         result() {
             let str = this.baseUrl
-            const params = []
+            const params = this.inputs
+            let results = [str]
 
-            // for (const prop in this.inputs) {
-            //     if (this.inputs.hasOwnProperty(prop)) {
-            //         const obj = {}
-            //         obj[prop] = this.prepareInput(this.inputs[prop])
-            //         params.push(obj)
-            //     }
-            // }
+            let prefix = '?'
 
-            for (prop of this.inputs) {
-                const obj = {}
-                obj[prop] = this.prepareInput(this.inputs[prop])
-                params.push(obj)
-            }
+            // iterate over inputs
+            for (const param in params) {
 
-            // console.log(params);
-            const multiParams = {}
-            const results = []
+                // convert foo/nbar/nbaz string into array, leave others as is
+                const val = this.prepareInput(params[param])
 
-            params.forEach((param, i) => {
+                if (val !== '') {
 
-                const prefix = (i === 0) ? '?' : '&'
-                const par_k = `${encodeURIComponent(Object.keys(param)[0])}=`
-                let par_val = Object.values(param)[0]
+                    // if we got the array, prepend each item with current string
+                    // and push everything into results array
+                    if (val instanceof Array) {
+                        const str = results[0]
+                        results = []
+                        val.forEach((innerVal) => {
+                            const innerStr = `${str}${prefix}${encodeURIComponent(param)}` +
+                                `=${encodeURIComponent(innerVal.trim())}`
+                            results.push(innerStr)
+                        })
+                        continue
+                    }
 
-                // store multi-param property for later use and skip
-                if (par_val instanceof Array) {
-                    multiParams.name = par_k
-                    multiParams.params = par_val
-                    console.log(multiParams)
-                    return
+                    // if current value is a string but one of the previos is array
+                    // append each of them with current param=val pair
+                    if (results.length > 1) {
+                        results.forEach((str, i) => {
+                            str += `${prefix}${encodeURIComponent(param)}` +
+                                `=${encodeURIComponent(val)}`
+                            results[i] = str
+                        })
+                        prefix = '&'
+                        continue
+                    }
+
+                    // business as usual
+                    results[0] += `${prefix}${encodeURIComponent(param)}=${encodeURIComponent(val)}`
+                    prefix = '&'
                 }
-
-                if (par_val !== '' && typeof par_val !== 'undefined' && par_val !== null) {
-                    par_val = encodeURIComponent(par_val)
-                    str += prefix + par_k + par_val
-                }
-            })
-
-            results.push(str)
-
-            if (Object.entries(multiParams).length > 0) {
-                multiParams.params.forEach((param) => {
-                    results.push(str += `&${multiParams.name}${param}`)
-                })
             }
-
             return results
         },
 
-        utm_content_bulk() {
-            return (this.utm_content.indexOf('\n') > 0) ? this.utm_content.split('\n') : this.utm_content
-        }
-    },
-    methods: { prepareInput: (str) => {
-        return (str.indexOf('\n') > 0) ? str.split('\n') : str
-    },
-    mySubmit: (e) => {
-        e.preventDefault()
+        stupidResult() {
+            let str = this.baseUrl
+            const params = this.inputs
+            const processedParams = {}
+            let arrayParams = []
 
-        axios.get('/admin/admin-ajax.php', { params: { action: 'add_links',
-            // should be generated, like result, but multiple lines
-            urls: this.urls,
-            keyword: 'keyword',
-            nonce: 'nonce', } }).then((response) => {
-            console.log(response)
-        })
-    } } })
 
+            for (let param in params) {
+                const val = params[param]
+                // processedParams.push({ param: this.prepareInput(val) })
+                let prepared = this.prepareInput(val)
+
+                processedParams[param] = prepared
+
+                // store multi-param property for later use and skip
+                if (prepared instanceof Array) {
+                    arrayParams = prepared
+                }
+            }
+
+            console.log('sup =)', processedParams, arrayParams)
+
+            const results = []
+
+            arrayParams.forEach((arrayParam) => {
+                let prefix = '?'
+
+                for (const param in params) {
+                    const val = params[param]
+
+                    if (val !== '') {
+                        str += `${prefix}${encodeURIComponent(param)}=${encodeURIComponent(val)}`
+                        prefix = '&'
+                    }
+                }
+                console.log(str)
+
+            })
+
+            // sup
+            // const multiParams = {}
+            // const results = []
+
+            // params.forEach((param, i) => {
+            //
+            //     const prefix = (i === 0) ? '?' : '&'
+            //     const par_k = `${encodeURIComponent(Object.keys(param)[0])}=`
+            //     let par_val = Object.values(param)[0]
+            //
+            //     // store multi-param property for later use and skip
+            //     if (par_val instanceof Array) {
+            //         multiParams.name = par_k
+            //         multiParams.params = par_val
+            //         console.log(multiParams)
+            //         return
+            //     }
+            //
+            //     if (par_val !== '' && typeof par_val !== 'undefined' && par_val !== null) {
+            //         par_val = encodeURIComponent(par_val)
+            //         str += prefix + par_k + par_val
+            //     }
+            // })
+
+            // results.push(str)
+            //
+            // if (Object.entries(multiParams).length > 0) {
+            //     multiParams.params.forEach((param) => {
+            //         results.push(str += `&${multiParams.name}${param}`)
+            //     })
+            // }
+            //
+            // return results
+        },
+    },
+    methods: {
+
+        // if input has newlines, return array
+        prepareInput(str) {
+            return (str.indexOf('\n') > 0) ? str.split('\n') : str
+        },
+
+        mySubmit(e) {
+            e.preventDefault()
+
+            axios.get('/admin/admin-ajax.php', { params: { action: 'add_links',
+                // should be generated, like result, but multiple lines
+                urls: this.urls,
+                keyword: 'keyword',
+                nonce: 'nonce', } })
+                .then((response) => {
+                    console.log(response)
+                })
+        },
+
+        updateOptions() {
+            getOptions().then((res) => {
+                this.options = res.data
+            })
+        },
+
+    }
+})
 
 document.addEventListener('DOMContentLoaded', () => {
 

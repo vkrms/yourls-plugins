@@ -25,7 +25,7 @@
 				<input type="text" name="utmc_base" class="utmc__text-field utmc_base" v-model="baseUrl" placeholder="base url">
 
 				<div class="utmc__input-group">
-					<label class="utmc_label">utm_source</label>
+					<label class="utmc_label bulk-label">utm_source</label>
 					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_source" tabindex="-1" title="click here for multiple input "/>
 					<textarea v-if="radioModel == 'utm_source'" name="utm_source" class="utmc__text-field --textarea" placeholder="utm_source, separated by newline" v-model="inputs.utm_source"></textarea>
 					<v-select v-else taggable :options="options.utm_source"
@@ -36,7 +36,7 @@
 				</div>
 
 				<div class="utmc__input-group">
-					<label class="utmc_label">utm_media</label>
+					<label class="utmc_label bulk-label">utm_media</label>
 					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_media" tabindex="-1" title="click here for multiple input "/>
 					<textarea v-if="radioModel == 'utm_media'" name="utm_media" class="utmc__text-field --textarea" placeholder="utm_media, separated by newline" v-model="inputs.utm_media"></textarea>
 					<v-select v-else taggable :options="options.utm_media"
@@ -47,7 +47,7 @@
 				</div>
 
 				<div class="utmc__input-group">
-					<label class="utmc_label">utm_campaign</label>
+					<label class="utmc_label bulk-label">utm_campaign</label>
 					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_campaign" tabindex="-1" title="click here for multiple input "/>
 					<textarea v-if="radioModel == 'utm_campaign'" name="utm_text-field" class="utmc__text-field --textarea" placeholder="utm_campaign, separated by newline" v-model="inputs.utm_campaign"></textarea>
 					<v-select v-else taggable :options="options.utm_campaign" label="value"
@@ -58,7 +58,7 @@
 				</div>
 
 				<div class="utmc__input-group">
-					<label class="utmc_label">utm_content</label>
+					<label class="utmc_label bulk-label">utm_content</label>
 					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_content" tabindex="-1" title="click here for multiple input "/>
 					<textarea v-if="radioModel == 'utm_content'" name="utm_content" class="utmc__text-field --textarea" placeholder="utm_content, separated by newline" v-model="inputs.utm_content"></textarea>
 					<v-select v-else taggable :options="options.utm_content" label="value"
@@ -69,7 +69,7 @@
 				</div>
 
 				<div class="utmc__input-group">
-					<label class="utmc_label">utm_term</label>
+					<label class="utmc_label bulk-label">utm_term</label>
 					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_term" tabindex="-1" title="click here for multiple input "/>
 					<textarea v-if="radioModel == 'utm_term'" name="utm_term" class="utmc__text-field --textarea" placeholder="utm_term, separated by newline" v-model="inputs.utm_term"></textarea>
 					<v-select v-else taggable :options="options.utm_term" label="value"
@@ -83,7 +83,11 @@
 
 			</div>
 
-			<pre>{{result}}</pre>
+			<div class="utmc__result">
+				<div v-for="line in result">
+					{{line}}
+				</div>
+			</div>
 
 			<button type="button" class="utmc__submit-btn" v-on:click="mySubmit">Shorten with UTMs</button>
 		</div> <!-- app end -->

@@ -1,14 +1,9 @@
+import axios from 'axios'
+
 export const data = {
 
     baseUrl: '',
-    inputs: {
-        // explicit because order matters
-        utm_source: '',
-        utm_media: '',
-        utm_campaign: '',
-        utm_content: '',
-        utm_term: ''
-    },
+    inputs: {},
 
     options: [],
     radioModel: '',
