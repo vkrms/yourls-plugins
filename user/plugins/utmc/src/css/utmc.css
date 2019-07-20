@@ -67,10 +67,13 @@ h4.utmc__title {
     font-size: 18px;
     background-color: #eee;
     line-height: 1.8;
-    padding: 0.5em 1em;
     box-sizing: border-box;
     border-radius: 6px;
     margin-bottom: 16px;
+}
+
+.utmc__result.--bulk {
+    padding: 0.5em 1em;	
 }
 
 .vs__dropdown-toggle {

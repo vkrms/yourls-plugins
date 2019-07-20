@@ -45,7 +45,6 @@ yourls_add_action( 'yourls_ajax_add_links', function() {
 require( 'incl/db.php' );
 require( 'incl/api-options.php' );
 
-
 yourls_add_action( 'pre_add_new_link', function( $url ) {
 	global $ydb;
 	$param_str = $ydb->escape( $url[0] );

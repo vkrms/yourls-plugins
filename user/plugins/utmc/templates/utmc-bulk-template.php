@@ -83,7 +83,7 @@
 
 			</div>
 
-			<div class="utmc__result">
+			<div class="utmc__result --bulk">
 				<div v-for="line in result">
 					{{line}}
 				</div>
