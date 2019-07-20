@@ -64,6 +64,7 @@ h4.utmc__title {
 .utmc__result {
     width: 100%;
     min-height: 36px;
+    height: auto;
     font-size: 18px;
     background-color: #eee;
     line-height: 1.8;
@@ -73,7 +74,7 @@ h4.utmc__title {
 }
 
 .utmc__result.--bulk {
-    padding: 0.5em 1em;	
+    padding: 0.5em 1em;
 }
 
 .vs__dropdown-toggle {
@@ -191,7 +192,6 @@ input.utmc__text-field.utmc_base {
     line-height: 1.8;
 }
 
-
 .utmc_label {
     display: block;
     font-size: 12px;
@@ -201,4 +201,8 @@ input.utmc__text-field.utmc_base {
 
 .bulk-label {
     padding-left: 40px;
+}
+
+span.vs__selected {
+    white-space: nowrap;
 }
