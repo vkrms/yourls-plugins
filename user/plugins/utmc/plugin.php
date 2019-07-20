@@ -49,12 +49,15 @@ require( 'incl/api-options.php' );
 yourls_add_action( 'pre_add_new_link', function( $url ) {
 	global $ydb;
 	$param_str = $ydb->escape( $url[0] );
-	$param_str = urldecode( $param_str );
-	$param_str = explode( '?', $param_str );
-	$params    = explode( '&', $param_str[1] );
 
-	foreach ( $params as $param ) {
-		$ydb->query( "INSERT INTO `utmc_params` SET `value` = '$param' ON DUPLICATE KEY UPDATE `used` = `used` + 1;" );
+	if ( '' !== $param_str ) {
+		$param_str = urldecode( $param_str );
+		$param_str = explode( '?', $param_str );
+		$params    = explode( '&', $param_str[1] );
+
+		foreach ( $params as $param ) {
+			$ydb->query( "INSERT INTO `utmc_params` SET `value` = '$param' ON DUPLICATE KEY UPDATE `used` = `used` + 1;" );
+		}
 	}
 
 	// return $url;
