@@ -83,11 +83,12 @@
 
 			</div>
 
-			<div class="utmc__result --bulk">
-				<div v-for="line in result">
+			<ul class="utmc__result --bulk">
+				<li v-for="line in result" class="utmc__li-result">
 					{{line}}
-				</div>
-			</div>
+				</li>
+			</ul>
+
 
 			<button type="button" class="utmc__submit-btn" v-on:click="mySubmit">Shorten with UTMs</button>
 		</div> <!-- app end -->

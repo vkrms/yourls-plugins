@@ -75,6 +75,7 @@ h4.utmc__title {
 
 .utmc__result.--bulk {
     padding: 0.5em 1em;
+    list-style: none;
 }
 
 .vs__dropdown-toggle {
@@ -123,6 +124,7 @@ button.vs__clear {
 
 .vs__actions {
     padding: 0;
+    flex: 0 0 16px;
 }
 
 svg.vs__open-indicator {
@@ -183,6 +185,8 @@ input.utmc__radio:checked {
 
 .vs__selected-options {
     color: #333;
+    max-width: 100%;
+    width: calc(100% - 16px);
 }
 
 input.utmc__text-field.utmc_base {
@@ -205,4 +209,19 @@ input.utmc__text-field.utmc_base {
 
 span.vs__selected {
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    line-height: 1.8;
+    max-width: 100%;
+}
+
+
+li.utmc__li-result {
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+}
+
+li.utmc__li-result:last-child {
+	margin-bottom: 0;
 }

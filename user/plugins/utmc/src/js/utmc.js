@@ -53,12 +53,7 @@ const utmc = new Vue({
                 nonce: 'nonce',
             } }).then((response) => {
                 console.log(response)
-            })
-        },
-
-        updateOptions() {
-            getOptions().then((res) => {
-                this.options = res.data
+                this.updateOptions()
             })
         },
 
