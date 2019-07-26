@@ -34,6 +34,7 @@ h4.utmc__title {
     line-height: 1.5;
     resize: vertical;
     display: inline-block;
+    vertical-align: unset;
 }
 
 .utmc__text-field:focus,
@@ -161,6 +162,10 @@ button.utmc__submit-btn:hover {
     /* flex-flow: row wrap; */
 }
 
+.utmc__input-group.--fullwidth {
+    width: 100%;
+}
+
 input.utmc__radio {
 	-webkit-appearance: none;
 	border: 2px solid #eee;
@@ -207,6 +212,10 @@ input.utmc__text-field.utmc_base {
     padding-left: 40px;
 }
 
+.preset-label {
+    margin-left: 12px;
+}
+
 span.vs__selected {
     white-space: nowrap;
     overflow: hidden;
@@ -224,4 +233,32 @@ li.utmc__li-result {
 
 li.utmc__li-result:last-child {
 	margin-bottom: 0;
+}
+
+button.utmc__submit-btn.--preset {}
+
+button.utmc__submit-btn.--small {
+    height: 28px;
+}
+
+.utmc__input-group.--fullwidth.--presets {
+    margin-bottom: 12px;
+}
+
+button.utmc__remove-btn {
+    font-family: inherit;
+    background: none;
+    border: none;
+    font-weight: 600;
+    color: #ff6680;
+    font-size: 32px;
+    line-height: 0;
+    vertical-align: -3px;
+    cursor: pointer;
+    margin-left: 8px;
+    outline: none;
+}
+
+.utmc__text-field.--preset {
+    vertical-align: top;
 }

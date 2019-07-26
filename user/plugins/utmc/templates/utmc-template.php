@@ -25,31 +25,31 @@
 				<v-select taggable :options="options.utm_source" label="value"
 					name="utm_source" class="utmc__text-field"
 					placeholder="utm_source" v-model="inputs.utm_source"
-					select-on-tab :clearable="false">
+					select-on-tab>
 				</v-select>
 
 				<v-select taggable :options="options.utm_media"  label="value"
 					name="utm_media" class="utmc__text-field"
 					placeholder="utm_media" v-model="inputs.utm_media"
-					select-on-tab :clearable="false">
+					select-on-tab>
 				</v-select>
 
 				<v-select taggable :options="options.utm_campaign" label="value"
 					name="utm_campaign" class="utmc__text-field"
 					placeholder="utm_campaign" v-model="inputs.utm_campaign"
-					select-on-tab :clearable="false">
+					select-on-tab>
 				</v-select>
 
 				<v-select taggable :options="options.utm_content" label="value"
 					name="utm_content" class="utmc__text-field"
 					placeholder="utm_content" v-model="inputs.utm_content"
-					select-on-tab :clearable="false">
+					select-on-tab>
 				</v-select>
 
 				<v-select taggable :options="options.utm_term" label="value"
 					name="utm_term" class="utmc__text-field"
 					placeholder="utm_term" v-model="inputs.utm_term"
-					select-on-tab :clearable="false">
+					select-on-tab>
 				</v-select>
 
 				<div class="utmc__text-field utmc__result">

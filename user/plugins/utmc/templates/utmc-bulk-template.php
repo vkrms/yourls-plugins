@@ -24,12 +24,26 @@
 
 				<input type="text" name="utmc_base" class="utmc__text-field utmc_base" v-model="baseUrl" placeholder="base url">
 
+				<div class="utmc__input-group --fullwidth --presets">
+					<label class="utmc_label preset-label">presets</label>
+					<v-select taggable :options="presets" label="name"
+						select-on-tab
+						class="utmc__text-field --preset" placeholder="preset"
+						:create-option="preset => ({ name: preset })"
+						v-model="preset" @input="presetSelected">
+					</v-select>
+
+					<button type="button" class="utmc__submit-btn --small" v-on:click="savePreset">Save</button>
+					<button type="button" class="utmc__remove-btn" v-on:click="rmPreset" title="Delete preset">&times;</button>
+
+				</div>
+
 				<div class="utmc__input-group">
 					<label class="utmc_label bulk-label">utm_source</label>
 					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_source" tabindex="-1" title="click here for multiple input "/>
 					<textarea v-if="radioModel == 'utm_source'" name="utm_source" class="utmc__text-field --textarea" placeholder="utm_source, separated by newline" v-model="inputs.utm_source"></textarea>
 					<v-select v-else taggable :options="options.utm_source"
-						name="utm_source" select-on-tab :clearable="false"
+						name="utm_source" select-on-tab
 						class="utmc__text-field" placeholder="utm_source"
 						v-model="inputs.utm_source">
 					</v-select>
@@ -41,7 +55,7 @@
 					<textarea v-if="radioModel == 'utm_media'" name="utm_media" class="utmc__text-field --textarea" placeholder="utm_media, separated by newline" v-model="inputs.utm_media"></textarea>
 					<v-select v-else taggable :options="options.utm_media"
 						name="utm_media" class="utmc__text-field"
-						placeholder="utm_media" select-on-tab :clearable="false"
+						placeholder="utm_media" select-on-tab
 						v-model="inputs.utm_media">
 					</v-select>
 				</div>
@@ -53,7 +67,7 @@
 					<v-select v-else taggable :options="options.utm_campaign" label="value"
 						name="utm_campaign" class="utmc__text-field"
 						placeholder="utm_campaign" v-model="inputs.utm_campaign"
-						select-on-tab :clearable="false">
+						select-on-tab>
 					</v-select>
 				</div>
 
@@ -64,7 +78,7 @@
 					<v-select v-else taggable :options="options.utm_content" label="value"
 						name="utm_content" class="utmc__text-field"
 						placeholder="utm_content" v-model="inputs.utm_content"
-						select-on-tab :clearable="false">
+						select-on-tab>
 					</v-select>
 				</div>
 
@@ -75,7 +89,7 @@
 					<v-select v-else taggable :options="options.utm_term" label="value"
 						name="utm_term" class="utmc__text-field" select-on-tab
 						placeholder="utm_term" v-model="inputs.utm_term"
-						select-on-tab :clearable="false">
+						select-on-tab>
 					</v-select>
 				</div>
 
@@ -89,8 +103,8 @@
 				</li>
 			</ul>
 
-
 			<button type="button" class="utmc__submit-btn" v-on:click="mySubmit">Shorten with UTMs</button>
+
 		</div> <!-- app end -->
 
 	</form>

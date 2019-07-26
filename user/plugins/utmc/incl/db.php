@@ -16,17 +16,43 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 			UNIQUE INDEX `VALUE_UNIQUE` (`VALUE` ASC)
 		) AUTO_INCREMENT=1';
 
+	$query2 = 'CREATE TABLE IF NOT EXISTS `utmc_presets` (
+			`id` int(11) NOT NULL auto_increment,
+			`name` varchar(200) NOT NULL,
+			`utm_source` varchar(200),
+			`utm_media` varchar(200),
+			`utm_campaign` varchar(200),
+			`utm_content` varchar(200),
+			`utm_term` varchar(200),
+			PRIMARY KEY (`id`),
+			UNIQUE INDEX `NAME_UNIQUE` (`NAME` ASC)
+		) AUTO_INCREMENT=1';
+
+	$queries = [
+		[
+			'table_name' => 'utmc_params',
+			'sql'        => $query,
+		],
+		[
+			'table_name' => 'utmc_presets',
+			'sql'        => $query2,
+		],
+	];
+
 	// Create tables
 	global $ydb;
-	$ydb->query( $query );
+	foreach ( $queries as $query ) {
 
-	$table_name = 'utmc_params';
+		$ydb->query( $query['sql'] );
 
-	$create_success = $ydb->query( "SHOW TABLES LIKE '$table_name'" );
-	if ( $create_success ) {
-		$success_msg[] = yourls_s( "Table '%s' created.", $table_name );
-	} else {
-		$error_msg[] = yourls_s( "Error creating table '%s'.", $table_name );
+		$table_name = $query['table_name'];
+
+		$create_success = $ydb->query( "SHOW TABLES LIKE '$table_name'" );
+		if ( $create_success ) {
+			$success_msg[] = yourls_s( "Table '%s' created.", $table_name );
+		} else {
+			$error_msg[] = yourls_s( "Error creating table '%s'.", $table_name );
+		}
 	}
 
 	$options = [
@@ -56,7 +82,7 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 	foreach ( $options as $type => $options_group ) {
 		foreach ( $options_group as $option ) {
 			$val   = "{$type}={$option}";
-			$query = "INSERT INTO `utmc_params` (`value`) VALUES ('$val')";
+			$query = "INSERT IGNORE INTO `utmc_params` (`value`) VALUES ('$val')";
 			$ydb->query( $query );
 		}
 	}

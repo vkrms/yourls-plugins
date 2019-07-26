@@ -11,7 +11,7 @@ export const data = {
 
 // get stuff from db with axios
 
-const ajaxurl = '/admin/admin-ajax.php'
+export const ajaxurl = '/admin/admin-ajax.php'
 
 export function getOptions() {
     return axios.get(ajaxurl, { params: {
@@ -30,5 +30,16 @@ export function handleMainInput(utmc) {
                 utmc.baseUrl = this.value
             })
         }
+    })
+}
+
+export function clearableTabindex() {
+    document.addEventListener('DOMContentLoaded', () => {
+        // prevent focusing on clear btn
+        let controls = document.querySelectorAll('.vs__clear')
+
+        Array.from(controls).forEach(control => {
+            control.setAttribute('tabindex', -1)
+        })
     })
 }

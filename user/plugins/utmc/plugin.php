@@ -44,6 +44,8 @@ yourls_add_action( 'yourls_ajax_add_links', function() {
 
 require( 'incl/db.php' );
 require( 'incl/api-options.php' );
+require( 'incl/api-presets.php' );
+
 
 yourls_add_action( 'pre_add_new_link', function( $url ) {
 	global $ydb;

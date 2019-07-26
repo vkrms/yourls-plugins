@@ -1,4 +1,4 @@
-import { data, getOptions, handleMainInput } from './shared'
+import { ajaxurl, data, getOptions, handleMainInput, clearableTabindex } from './shared'
 import axios from 'axios'
 import Toasted from 'vue-toasted'
 
@@ -20,11 +20,17 @@ $vueSelectComponent.props.components.default = () => {
 // v-select component
 Vue.component('v-select', $vueSelectComponent)
 
+// append stuff to the shared data object
+data.presetName = ''
+data.preset = '' //
+data.presets = []
+
 const utmc = new Vue({
     el: '#bulkApp',
     data,
     mounted() {
         this.updateOptions()
+        this.updatePresets()
     },
 
     watch: {
@@ -48,10 +54,11 @@ const utmc = new Vue({
             // iterate over inputs
             for (const param in params) {
 
-                // convert foo/nbar/nbaz string into array, leave others as is
-                const val = this.prepareInput(params[param])
+                let val = params[param]
 
-                if (val !== '') {
+                if (val && val !== '') {
+                    // convert foo/nbar/nbaz string into array, leave others as is
+                    val = this.prepareInput(val)
 
                     // if we got the array, prepend each item with current string
                     // and push everything into results array
@@ -87,45 +94,89 @@ const utmc = new Vue({
         },
     },
     methods: {
-        // if input has newlines, return array
-        prepareInput(str) {
-            return (str.indexOf('\n') > 0) ? str.split('\n') : str
-        },
 
         mySubmit(e) {
             e.preventDefault()
             const urls = this.result
 
-            axios.get('/admin/admin-ajax.php', { params: {
+            axios.get(ajaxurl, { params: {
                 action: 'add_links',
                 urls: urls,
                 keyword: 'keyword',
                 nonce: 'nonce',
             }})
                 .then((response) => {
-                    this.$toasted.success('Сохранено', { duration: 10000 })
+                    this.$toasted.success('Saved', { duration: 10000 })
                     this.updateOptions()
                 })
         },
 
+        // if input has newlines, return array
+        prepareInput(str) {
+            return (str.indexOf('\n') > 0) ? str.split('\n') : str
+        },
+
+        // populate form on preset selected
+        presetSelected(preset) {
+            if (preset.id) {
+                // this creates non-reactive object copy
+                let presetTemp = Object.assign({}, preset)
+                delete presetTemp.id
+                delete presetTemp.name
+
+                // activate appropriate radio\textarea
+                for (let utm in presetTemp) {
+                    if (preset[utm].indexOf('\n') > 0)
+                        this.radioModel = utm
+                }
+
+                this.inputs = Object.assign(this.inputs, presetTemp)
+            }
+        },
+
+        rmPreset(e) {
+            e.preventDefault(e)
+            axios.get(ajaxurl, { params: {
+                action: 'remove_preset',
+                id: this.preset.id
+            } }).then(res => {
+                this.$toasted.success('Removed', { duration: 10000 })
+                this.preset = {}
+                this.updatePresets()
+            })
+        },
+
+        savePreset(e) {
+            e.preventDefault()
+
+            let params = Object.assign({
+                action: 'save_preset',
+                name: this.preset.name
+            }, this.inputs)
+
+            axios.get(ajaxurl, { params: params }).then(res => {
+                this.$toasted.success('Saved', { duration: 10000 })
+                this.updatePresets()
+            })
+        },
+
+        // get available options
         updateOptions() {
             getOptions().then((res) => {
                 this.options = res.data
             })
         },
 
+        // get available presets
+        updatePresets() {
+            axios.get(ajaxurl, { params: {
+                action: 'get_presets'
+            }}).then(res => {
+                this.presets = res.data
+            })
+        }
+
     }
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    // update base url in vue
-    const urlInput = document.getElementById('add-url')
-
-    if (urlInput) {
-        urlInput.addEventListener('keyup', (e) => {
-            utmc.baseUrl = this.value
-        })
-    }
-
-})
+clearableTabindex()

@@ -1,4 +1,4 @@
-import { data, getOptions, handleMainInput } from './shared'
+import { ajaxurl, data, getOptions, handleMainInput, clearableTabindex } from './shared'
 
 // override vue-select controls
 const $vueSelectComponent = VueSelect.VueSelect
@@ -44,6 +44,13 @@ const utmc = new Vue({
 
     methods: {
 
+        addLinkFromVue(e) {
+            if (e.key === 'Enter') {
+                console.log('attempt do add link', utmc)
+                window.addLink(utmc)
+            }
+        },
+
         mySubmit(e) {
             e.preventDefault()
             axios.get('/admin/admin-ajax.php', { params: {
@@ -57,12 +64,11 @@ const utmc = new Vue({
             })
         },
 
-        addLinkFromVue(e) {
-            if (e.key === 'Enter') {
-                console.log('attempt do add link', utmc)
-                window.addLink(utmc)
-            }
-        }
+        updateOptions() {
+            getOptions().then((res) => {
+                this.options = res.data
+            })
+        },
     },
 })
 
@@ -71,3 +77,4 @@ window.utmc = utmc
 
 // main input listener
 handleMainInput(utmc)
+clearableTabindex()
