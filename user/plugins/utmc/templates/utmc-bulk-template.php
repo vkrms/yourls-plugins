@@ -93,7 +93,12 @@
 					</v-select>
 				</div>
 
-				<!-- <textarea name="utmc_urls" class="utmc__text-field utmc__result" v-bind:value="urls" placeholder="result here..."></textarea> -->
+				<div class="utmc__input-group">
+					<label class="utmc_label bulk-label">no_bulk</label>
+					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" :value="false" tabindex="-1" title="click here for NO multiple input "/>
+					<input class="utmc__text-field" select-on-tab
+						placeholder="<< check for NO multiple input" disabled>
+				</div>
 
 			</div>
 
