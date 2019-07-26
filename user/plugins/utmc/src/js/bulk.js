@@ -172,7 +172,9 @@ const utmc = new Vue({
             axios.get(ajaxurl, { params: {
                 action: 'get_presets'
             }}).then(res => {
-                this.presets = res.data
+                if (res.data) {
+                    this.presets = res.data
+                }
             })
         }
 
