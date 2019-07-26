@@ -1,6 +1,6 @@
 <?php
 
-yourls_add_action( 'yourls_ajax_get_options', function() {
+yourls_add_action( 'yourls_ajax_utmc_get_options', function() {
 	global $ydb;
 	$query = 'SELECT * FROM utmc_params';
 	// $result = ;

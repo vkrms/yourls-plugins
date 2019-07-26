@@ -15,7 +15,7 @@ export const ajaxurl = '/admin/admin-ajax.php'
 
 export function getOptions() {
     return axios.get(ajaxurl, { params: {
-        action: 'get_options'
+        action: 'utmc_get_options'
     } })
 }
 
