@@ -24,14 +24,14 @@ yourls_add_action( 'yourls_ajax_save_preset', function() {
 
 	$name         = $_GET['name'];
 	$utm_source   = $_GET['utm_source'];
-	$utm_media    = $_GET['utm_media'];
+	$utm_medium    = $_GET['utm_medium'];
 	$utm_campaign = $_GET['utm_campaign'];
 	$utm_content  = $_GET['utm_content'];
 	$utm_term     = $_GET['utm_term'];
 
 	$query = "INSERT IGNORE INTO `utmc_presets`
-		(`name`, `utm_source`, `utm_media`, `utm_campaign`, `utm_content`, `utm_term`)
-		VALUES ('$name', '$utm_source', '$utm_media', '$utm_campaign', '$utm_content', '$utm_term')";
+		(`name`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`)
+		VALUES ('$name', '$utm_source', '$utm_medium', '$utm_campaign', '$utm_content', '$utm_term')";
 
 	$status = $ydb->query( $query );
 

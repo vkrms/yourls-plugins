@@ -20,7 +20,7 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 			`id` int(11) NOT NULL auto_increment,
 			`name` varchar(200) NOT NULL,
 			`utm_source` varchar(200),
-			`utm_media` varchar(200),
+			`utm_medium` varchar(200),
 			`utm_campaign` varchar(200),
 			`utm_content` varchar(200),
 			`utm_term` varchar(200),
@@ -71,7 +71,7 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 			'Instagram.com',
 			'Bizdev',
 		],
-		'utm_media'  => [
+		'utm_medium'  => [
 			'paid',
 			'referral',
 			'affiliate',

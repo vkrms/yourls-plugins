@@ -28,9 +28,9 @@
 					select-on-tab>
 				</v-select>
 
-				<v-select taggable :options="options.utm_media"  label="value"
-					name="utm_media" class="utmc__text-field"
-					placeholder="utm_media" v-model="inputs.utm_media"
+				<v-select taggable :options="options.utm_medium"  label="value"
+					name="utm_medium" class="utmc__text-field"
+					placeholder="utm_medium" v-model="inputs.utm_medium"
 					select-on-tab>
 				</v-select>
 
