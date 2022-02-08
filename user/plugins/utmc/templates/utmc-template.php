@@ -1,11 +1,11 @@
 
 <!-- ASSETS -->
 <!-- vue -->
-<script src="https://unpkg.com/vue@latest"></script>
+<script src="https://unpkg.com/vue@2"></script>
 
 <!-- vue-select -->
-<script src="https://unpkg.com/vue-select@latest"></script>
-<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+<script src="https://unpkg.com/vue-select@3"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@3/dist/vue-select.css">
 
 <!-- utmc stuff -->
 <link rel="stylesheet" href="<?php echo utmc_resource( 'src/css/utmc.css' ) ?>"/>
