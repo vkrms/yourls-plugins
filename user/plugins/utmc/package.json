@@ -4,9 +4,8 @@
  "main": "index.js",
  "license": "MIT",
  "scripts": {
-  "start": "gulp",
   "build": "webpack",
-  "watch": "gulp watch"
+  "watch": "webpack --watch"
  },
  "devDependencies": {
   "autoprefixer": "^9.6.0",
