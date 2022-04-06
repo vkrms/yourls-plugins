@@ -14,7 +14,7 @@ yourls_add_action( 'yourls_ajax_get_options', function() {
 	foreach ( $values as $str ) {
 		$frags = explode( '=', $str );
 		$type  = $frags[0];
-		$val   = $frags[1];
+		$val   = $frags[1] ?? null;
 
 		$result[ $type ][] = $val;
 	}
