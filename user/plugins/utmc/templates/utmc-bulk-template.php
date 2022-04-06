@@ -36,13 +36,13 @@
 				</div>
 
 				<div class="utmc__input-group">
-					<label class="utmc_label bulk-label">utm_media</label>
-					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_media" tabindex="-1" title="click here for multiple input "/>
-					<textarea v-if="radioModel == 'utm_media'" name="utm_media" class="utmc__text-field --textarea" placeholder="utm_media, separated by newline" v-model="inputs.utm_media"></textarea>
-					<v-select v-else taggable :options="options.utm_media"
-						name="utm_media" class="utmc__text-field"
-						placeholder="utm_media" select-on-tab :clearable="false"
-						v-model="inputs.utm_media">
+					<label class="utmc_label bulk-label">utm_medium</label>
+					<input type="radio" name="utmc_multi" class="utmc__radio" v-model="radioModel" value="utm_medium" tabindex="-1" title="click here for multiple input "/>
+					<textarea v-if="radioModel == 'utm_medium'" name="utm_medium" class="utmc__text-field --textarea" placeholder="utm_medium, separated by newline" v-model="inputs.utm_medium"></textarea>
+					<v-select v-else taggable :options="options.utm_medium"
+						name="utm_medium" class="utmc__text-field"
+						placeholder="utm_medium" select-on-tab :clearable="false"
+						v-model="inputs.utm_medium">
 					</v-select>
 				</div>
 

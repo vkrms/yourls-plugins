@@ -45,7 +45,7 @@ yourls_add_action( 'activated_plugin', function ( $plugin ) {
 			'Instagram.com',
 			'Bizdev',
 		],
-		'utm_media'  => [
+		'utm_medium'  => [
 			'paid',
 			'referral',
 			'affiliate',
