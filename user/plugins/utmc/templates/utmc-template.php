@@ -65,7 +65,7 @@
 	</form>
 </section>
 
-<script src="<?php echo utmc_resource( 'dist/addLink.js' ) ?>"></script>
-<script src="<?php echo utmc_resource( 'dist/utmc.js' ) ?>"></script>
+<script src="<?php echo utmc_resource( 'dist/js/addLink.js' ) ?>"></script>
+<script src="<?php echo utmc_resource( 'dist/js/utmc.js' ) ?>"></script>
 
 <?php

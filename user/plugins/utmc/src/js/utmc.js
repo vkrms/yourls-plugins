@@ -1,3 +1,4 @@
+import '../css/utmc.css'
 import { data, getOptions, handleMainInput } from './shared'
 
 // override vue-select controls
