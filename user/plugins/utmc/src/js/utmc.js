@@ -63,7 +63,13 @@ const utmc = new Vue({
                 console.log('attempt do add link', utmc)
                 window.addLink(utmc)
             }
-        }
+        },
+
+        updateOptions() {
+            getOptions().then((res) => {
+                this.options = res.data
+            })
+        },
     },
 })
 
