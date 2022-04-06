@@ -4,3 +4,4 @@ user\config-docker.php
 yourls.txt
 test
 testnode
+.DS_Store
